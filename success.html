@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    function load() {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '인증 성공!',
+            text : '서버 입장이 완료되었어요! 인증창을 닫아주세요!',
+            footer: 'Discord Rem Community | Powerd By ! レムリン#9999',
+            showConfirmButton: false,
+        }).then((result) => {
+            location.replace("")
+        })
+    }
+</script>
+
+<body onload="load()">
+
+</body>
