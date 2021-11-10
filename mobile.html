@@ -1,22 +1,29 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-<script type='text/javascript'>
-    let filter = "win16|win32|win64|mac|macintel";
-    if(0 > filter.indexOf(navigator.platform.toLowerCase())){
-        return;
-    }else{
-        location.href='service.html';
-    }
-</script>
-
+<meta charset="utf-8">
 <script>
+    let url = window.location.href;
+    if(!url.includes("?title")) {
+        location.href = 'https://rem9999.xyz/error';
+    }
+    let sp = url.split("?");
+
+    let title = sp[1].split("=")[1];
+    let guild_name = sp[2].split("=")[1]
+    let message = sp[3].split("=")[1]
+    let icon = sp[4].split("=")[1]
+
+    console.log(decodeURIComponent(title))
+    console.log(decodeURIComponent(guild_name))
+    console.log(decodeURIComponent(message))
+    console.log(decodeURIComponent(icon))
+
     function load() {
         Swal.fire({
             position: 'center',
-            icon: 'success',
-            title: '인증 성공!',
-            text: '서버 입장이 완료되었어요! 인증창을 닫아주세요!',
-            footer: 'Discord Rem Community | Powerd By ! レムリン#9999',
+            icon: decodeURIComponent(icon),
+            title: decodeURIComponent(title),
+            text: `${decodeURIComponent(message)}`,
+            footer: `${decodeURIComponent(guild_name)} | Powerd By ! レムリン#9999`,
             showConfirmButton: false,
         }).then((result) => {
             location.replace("")
@@ -30,7 +37,7 @@
 
 <style>
     body {
-        background-image: url('https://imgur.com/5baBFUO.png');
+        background-image: url('https://i.imgur.com/5baBFUO.png');
         background-size: cover;
     }
 </style>
